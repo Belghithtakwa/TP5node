@@ -13,14 +13,14 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Post, { as: 'posts' });
       User.hasMany(models.Comment, { as: 'comments' });
-      // User.belongsTo(models.role, {
-      //   foreignKey: {
-      //     name: 'roleId',
-      //     type: DataTypes.UUID,
-      //     allowNull: true
-      //   },
-      //   as: 'role'
-      // });
+      User.belongsTo(models.role, {
+        foreignKey: {
+          name: 'roleId',
+          type: DataTypes.UUID,
+          allowNull: true
+        },
+        as: 'role'
+      });
     
     }
   };

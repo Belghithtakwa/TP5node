@@ -24,14 +24,14 @@ module.exports = {
       lien: {
         type: Sequelize.STRING
       },
-      // roleId: {
-      //   type: Sequelize.UUID,
-      //   references: {
-      //     model: 'roles',
-      //     key: 'id'
-      //   },
-      //   allowNull: true,
-      // },
+      roleId: {
+        type: Sequelize.UUID,
+        references: {
+          model: 'roles',
+          key: 'id'
+        },
+        allowNull: true,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
