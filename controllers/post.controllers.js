@@ -1,4 +1,5 @@
-const Post = require("../models/post");
+const models = require("../models");
+const Post = models.Post
 
 const getPosts = async(req, res)=>{
 try {
@@ -9,11 +10,13 @@ try {
 }
 }
 const getPost = async(req, res)=>{
+ 
   try {
+    let post
     if(req.query.comments == "non")
-    const post = await Post.findOne({where: {id}});
+     post = await Post.findOne({where: {id}});
     else 
-    const post = await Post.findOne(id, {include: ['comments']});
+     post = await Post.findOne(id, {include: ['comments']});
     res.status(200).send(post);
   } catch (error) {
     res.status(500).send("error get post "+error)

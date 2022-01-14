@@ -1,4 +1,5 @@
-const Comment = require("../models/post");
+const models = require("../models");
+const Comment = models.Comment;
 
 const getComments = async(req, res)=>{
 try {

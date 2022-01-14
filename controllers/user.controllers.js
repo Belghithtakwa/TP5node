@@ -1,4 +1,5 @@
-const User = require("../models/user");
+const models = require("../models");
+const User = models.User
 
 
 
@@ -28,10 +29,16 @@ const getUserById = async(req, res)=>{
 }
 
 const createUser = async(req, res)=>{
-  const payload = req.body;
+  const newUser = {
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    email: req.body.email,
+    username: req.body.username,
+    lien: req.body.github
+  }
   try {
-    const user = await User.create(payload);
-    res.status(200).send(user)
+    const savedUser = await newUser.save();
+    res.status(201).send({user:savedUser })
   } catch (error) {
     res.status(500).send("error create user" +error);
     
